@@ -22,21 +22,21 @@
     tar zxvf crictl-$VERSION-linux-amd64.tar.gz -C /usr/local/bin
     rm -f crictl-$VERSION-linux-amd64.tar.gz
 
-> crictl info {   "status": {
->     "conditions": [
->       {
->         "type": "RuntimeReady",
->         "status": true,
->         "reason": "",
->         "message": ""
->       },
->       {
->         "type": "NetworkReady",
->         "status": true,
->         "reason": "",
->         "message": ""
->       }
->     ]   } }
+    crictl info {   "status": {
+        "conditions": [
+          {
+            "type": "RuntimeReady",
+            "status": true,
+            "reason": "",
+            "message": ""
+          },
+          {
+            "type": "NetworkReady",
+            "status": true,
+            "reason": "",
+            "message": ""
+          }
+        ]   } }
 
 ***Configure CRI-O***
 
