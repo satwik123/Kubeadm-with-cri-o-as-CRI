@@ -21,22 +21,27 @@
     wget https://github.com/kubernetes-sigs/cri-tools/releases/download/$VERSION/crictl-$VERSION-linux-amd64.tar.gz
     tar zxvf crictl-$VERSION-linux-amd64.tar.gz -C /usr/local/bin
     rm -f crictl-$VERSION-linux-amd64.tar.gz
+Verify installation
 
-    crictl info {   "status": {
-        "conditions": [
-          {
-            "type": "RuntimeReady",
-            "status": true,
-            "reason": "",
-            "message": ""
-          },
-          {
-            "type": "NetworkReady",
-            "status": true,
-            "reason": "",
-            "message": ""
-          }
-        ]   } }
+     $ crictl info  
+    {  
+    "status": {  
+    "conditions": [  
+    {  
+    "type": "RuntimeReady",  
+    "status": true,  
+    "reason": "",  
+    "message": ""  
+    },  
+    {  
+    "type": "NetworkReady",  
+    "status": true,  
+    "reason": "",  
+    "message": ""  
+    }  
+    ]  
+    }  
+    }
 
 ***Configure CRI-O***
 
@@ -101,6 +106,7 @@ Initialize kubeadm
 Change **apiserver-advertise-address** as master node address
 
     kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=172.16.0.41 --cri-socket=unix:///var/run/crio/crio.sock --apiserver-bind-port=443
+
 
 
 
