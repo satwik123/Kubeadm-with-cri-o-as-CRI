@@ -101,15 +101,17 @@ Stop and start crio service
     
     $ swapoff -a
 
-Initialize kubeadm
-------------------
+***Initialize kubeadm***
+
 Change **apiserver-advertise-address** as master node address
 
     kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=172.16.0.41 --cri-socket=unix:///var/run/crio/crio.sock --apiserver-bind-port=443
 
 
+***Setup Your Pod Network***
+```bash
+    $ export kubever=$(kubectl version | base64 | tr -d '\n')
+    $ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$kubever"
 
-
-
-
+```
 
